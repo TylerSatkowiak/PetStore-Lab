@@ -1,0 +1,49 @@
+﻿@model PetStore.Models.Product
+@{
+    ViewData["Title"] = "EditName";
+}
+<h2>Edit Name:</h2>
+
+<table class="table-bordered table-hover table-responsive">
+    @foreach (Product product in Product.Read())
+    {
+        <tr>
+            <td>
+                @product.id
+            </td>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                @product.Price
+            </td>
+            <td>
+
+                <input type="button" value="Edit" name="Edit" onclick="MyFunction()">
+                <script>
+                    function MyFunction() {
+                        var x = document.getElementById("Field");
+                        if (x.type == "") {
+                            x.type = "text";
+                        }
+                        else {
+                            x.type = "";
+                        }
+
+                    }
+                </script>
+
+            </td>
+            <td>
+
+                <input type="button" value="Remove" name="Remove">
+
+            </td>
+
+        </tr>
+    }
+
+
+</table>
+
+<a href="/Home/Add">  <input type="button" value="Add" name="Add"> </a>
